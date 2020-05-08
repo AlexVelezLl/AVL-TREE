@@ -389,10 +389,11 @@ public class AVL<E> { //AVL
         else if (!(this instanceof AVL) || !(obj instanceof AVL)){ 
             return false;
         }
+        @SuppressWarnings("unchecked")
         final AVL<E> other = (AVL<E>) obj;
         return equals(this.root,other.root);    
     }
-    private boolean equals(Nodo n1, Nodo n2){
+    private boolean equals(Nodo<E> n1, Nodo<E> n2){
         if(n1 == null && n2 == null)
             return true;
         else if((n1 == null && n2 != null) || (n1 != null && n2 == null))
@@ -502,7 +503,7 @@ public class AVL<E> { //AVL
     public boolean delete(Object o) throws ClassCastException, NullPointerException{
     	Nodo<E> borrar=null,mirar=null,cambiar=null, nPadre = null;
     	Nodo<E> raizTmp = this.getRoot();
-    	E c_aux, d_aux;
+    	E c_aux;
     	boolean salir = false;
     	int altDer = 0;
     	int altIzq = 0;
@@ -512,7 +513,8 @@ public class AVL<E> { //AVL
     		return false;
     	}
 
-    	//el nodo a borrar es la raiz?
+        
+        //el nodo a borrar es la raiz?
     	if(this.compararDato((E)o, raizTmp.getData())==0){
 	    	salir = true;
 	    	borrar = raizTmp;
@@ -679,7 +681,8 @@ public class AVL<E> { //AVL
 	    	else if(this.compararDato(nodo.getData(), raizTmp.getData())<0){	
 	    		if(raizTmp.getLeft()!=null){   
 		    		raizTmp = raizTmp.getLeft();
-	    		}
+                }
+                
 	    	}
 	    	if(this.compararDato(nodo.getData(), raizTmp.getData())==0){
 	    		return pila.pop();
