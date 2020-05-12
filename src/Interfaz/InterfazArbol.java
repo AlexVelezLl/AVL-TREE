@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package interfaz;
 
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -34,7 +34,6 @@ public class InterfazArbol {
         root = new VBox();
         avlTree = new AVL<>(Integer::compareTo);
         sp = new ScrollPane();
-
         createRoot();
     }
 
@@ -74,6 +73,7 @@ public class InterfazArbol {
         StackPane arbol = new StackPane();
         arbol.setMinHeight(200);
         arbol.setMinWidth(1366);
+        arbol.setMinWidth(avlTree.height() * 100);
         btnClear.setOnMouseClicked(e -> {
             avlTree = new AVL<>(Integer::compareTo);
             arbol.getChildren().clear();
@@ -90,7 +90,7 @@ public class InterfazArbol {
                 num = Integer.parseInt(txtInsertar.getText());
                 txtInsertar.setText("");
                 txtInsertar.requestFocus();
-                avlTree.Insert(num);
+                avlTree.insert(num);
 
                 arbol.getChildren().clear();
                 Pane avlPane = avlTree.mostrarArbol();

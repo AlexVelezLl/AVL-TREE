@@ -21,7 +21,7 @@ public class Nodo<E> {
 
     public Nodo(E data) {
         this.data = data;
-        left=right=null;
+        left = right = null;
     }
 
     public int getFe() {
@@ -55,38 +55,39 @@ public class Nodo<E> {
     public void setRight(Nodo<E> right) {
         this.right = right;
     }
-    public int getAltura(){
-                        int hIzq = 0;
-			int hDer = 0;
-			
-			if(this.getData()==null){
-			  return 0;
-                        }
-	
-	
-			if(this.getLeft()!=null){	
-				hIzq = this.getLeft().getAltura();
-			}else{
-				hIzq = 0;
-			}
-	    	
-	    	if(this.getRight()!=null){   
-	    		hDer = this.getRight().getAltura();
-	    	}else{
-	    		hDer = 0;
-	    	}
-	    	return Math.max(hIzq, hDer) + 1;
-    }   
-    public int getFactorE(){
-			int altDer = 0;
-			int altIzq = 0;
-			if(this.getRight()!=null){
-		    	altDer = this.getRight().getAltura();
-		   	}
-		   	if(this.getLeft()!=null){		    
-		   		altIzq = this.getLeft().getAltura();
-		   	}
-			return (altDer - altIzq);
+
+    public int getAltura() {
+        int hIzq = 0;
+        int hDer = 0;
+
+        if (this.getData() == null) {
+            return 0;
+        }
+
+        if (this.getLeft() != null) {
+            hIzq = this.getLeft().getAltura();
+        } else {
+            hIzq = 0;
+        }
+
+        if (this.getRight() != null) {
+            hDer = this.getRight().getAltura();
+        } else {
+            hDer = 0;
+        }
+        return Math.max(hIzq, hDer) + 1;
     }
-    
+
+    public int getFactorE() {
+        int altDer = 0;
+        int altIzq = 0;
+        if (this.getRight() != null) {
+            altDer = this.getRight().getAltura();
+        }
+        if (this.getLeft() != null) {
+            altIzq = this.getLeft().getAltura();
+        }
+        return (altDer - altIzq);
+    }
+
 }
