@@ -7,10 +7,13 @@ package interfaz;
 
 import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -29,10 +32,16 @@ public class InterfazArbol {
     private Pane root;
     private AVL<Integer> avlTree;
     private ScrollPane sp;
+    private final TextField txtInsertar;
+    private final TextField txtDelete;
+    StackPane arbol;
 
     public InterfazArbol() {
         root = new VBox();
+        txtInsertar = new TextField();
+        txtDelete = new TextField();
         avlTree = new AVL<>(Integer::compareTo);
+        arbol = new StackPane();
         sp = new ScrollPane();
         createRoot();
     }
@@ -51,9 +60,17 @@ public class InterfazArbol {
         HBox hbOpc = new HBox();
         hbOpc.setAlignment(Pos.CENTER);
         hbOpc.setTranslateY(6);
-        TextField txtInsertar = new TextField();
+        txtInsertar.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                insertar();
+            }
+        });
+        txtDelete.setOnKeyPressed(e->{
+            if(e.getCode()==KeyCode.ENTER){
+                eliminar();
+            }
+        });
         Button btnInsertar = new Button("Insertar");
-        TextField txtDelete = new TextField();
         Button btnDelete = new Button("Eliminar");
         HBox hbInst = new HBox();
         hbInst.getChildren().addAll(txtInsertar, btnInsertar);
@@ -70,7 +87,6 @@ public class InterfazArbol {
         optRect.setFill(Color.CADETBLUE);
         StackPane optStck = new StackPane();
         optStck.getChildren().addAll(optRect, hbOpc);
-        StackPane arbol = new StackPane();
         arbol.setMinHeight(200);
         arbol.setMinWidth(1366);
         arbol.setMinWidth(avlTree.height() * 100);
@@ -85,42 +101,11 @@ public class InterfazArbol {
         sp.setMinHeight(500);
         sp.setMaxHeight(500);
         btnInsertar.setOnAction(e -> {
-            Integer num = 0;
-            try {
-                num = Integer.parseInt(txtInsertar.getText());
-                txtInsertar.setText("");
-                txtInsertar.requestFocus();
-                avlTree.insert(num);
-
-                arbol.getChildren().clear();
-                Pane avlPane = avlTree.mostrarArbol();
-                if (avlTree.height() <= 7)
-                    avlPane.setTranslateX(100 * (7 - avlTree.height()));
-                arbol.getChildren().add(avlPane);
-                arbol.setMinWidth(avlTree.height() * 100);
-            } catch (Exception ex) {
-
-            }
-
+            insertar();
         });
 
         btnDelete.setOnMouseClicked(e -> {
-            Integer num = 0;
-            try {
-                num = Integer.parseInt(txtDelete.getText());
-                txtDelete.setText("");
-                txtDelete.requestFocus();
-                avlTree.delete(num);
-                arbol.getChildren().clear();
-                Pane avlPane = avlTree.mostrarArbol();
-                if (avlTree.height() <= 7)
-                    avlPane.setTranslateX(100 * (7 - avlTree.height()));
-                arbol.getChildren().add(avlPane);
-                arbol.setMinWidth(avlTree.height() * 100);
-
-            } catch (Exception ex) {
-
-            }
+            eliminar();
         });
 
         StackPane pnSalir = new StackPane();
@@ -136,6 +121,52 @@ public class InterfazArbol {
 
         root.getChildren().addAll(topPane, optStck, sp, pnSalir);
 
+    }
+
+    private void eliminar() {
+        Integer num = 0;
+        try {
+            num = Integer.parseInt(txtDelete.getText());
+            txtDelete.setText("");
+            txtDelete.requestFocus();
+            avlTree.delete(num);
+            arbol.getChildren().clear();
+            Pane avlPane = avlTree.mostrarArbol();
+            if (avlTree.height() <= 7)
+                avlPane.setTranslateX(100 * (7 - avlTree.height()));
+            arbol.getChildren().add(avlPane);
+            arbol.setMinWidth(avlTree.height() * 100);
+
+        } catch (Exception ex) {
+            Alert alerta = new Alert(AlertType.ERROR);
+            alerta.setTitle("Error");
+            alerta.setContentText("Por favor ingrese un numero valido");
+            alerta.showAndWait();
+        }
+
+    }
+
+    private void insertar() {
+        Integer num = 0;
+        try {
+            num = Integer.parseInt(txtInsertar.getText());
+            txtInsertar.setText("");
+            txtInsertar.requestFocus();
+            avlTree.insert(num);
+
+            arbol.getChildren().clear();
+            Pane avlPane = avlTree.mostrarArbol();
+            if (avlTree.height() <= 7)
+                avlPane.setTranslateX(100 * (7 - avlTree.height()));
+            arbol.getChildren().add(avlPane);
+            arbol.setMinWidth(avlTree.height() * 100);
+        } catch (Exception ex) {
+            // Si la tecla que inserto no es ningun numero
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("WOOPS!");
+            alert.setContentText("Por favor ingrese un numero valido.");
+            alert.showAndWait();
+        }
     }
 
     public Pane getRoot() {
