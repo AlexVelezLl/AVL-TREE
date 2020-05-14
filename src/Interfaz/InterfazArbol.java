@@ -34,7 +34,7 @@ public class InterfazArbol {
     private ScrollPane sp;
     private final TextField txtInsertar;
     private final TextField txtDelete;
-    StackPane arbol;
+    private StackPane arbol;
 
     public InterfazArbol() {
         root = new VBox();

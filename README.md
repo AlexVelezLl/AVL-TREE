@@ -25,17 +25,17 @@ The representation of the avl tree in this application is only to save integers,
 
 As [freecodecamp](https://www.freecodecamp.org/news/avl-tree-insertion-rotation-and-balance-factor/) describes, a search binary tree is a TDA composed of nodes that have the following rules:
 
-1. Each has a root node at the top.
+ 1. Each has a root node at the top.
 
-2. Every node has at the most, two children.
+ 2. Every node has at the most, two children.
 
-3. Every node has only one parent (the root is the one node that has no parents).
+ 3. Every node has only one parent (the root is the one node that has no parents).
 
-4. For each node, its left child is less or equal than the node, wich is less or equal than its right child.
+ 4. For each node, its left child is less or equal than the node, wich is less or equal than its right child.
 
 And the Avl tree has additionally this rule:
 
-1.- The difference between the depth of right and left subtrees cannot be more than one. In order to maintain this guarantee, an implementation of an AVL will include an algorithm to rebalance the tree when adding an additional element would upset this guarantee.
+ 1. The difference between the depth of right and left subtrees cannot be more than one. In order to maintain this guarantee, an implementation of an AVL will include an algorithm to rebalance the tree when adding an additional element would upset this guarantee.
 
 There are several algotihm to aim that, a few of these are: LL rotation, RR rotation, LR rotation and RL rotation, you can watch all these algorithsm to balance the tree in this [video](https://www.youtube.com/watch?v=7m94k2Qhg68).
 

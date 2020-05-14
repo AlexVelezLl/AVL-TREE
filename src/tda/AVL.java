@@ -485,7 +485,10 @@ public class AVL<E> { // AVL
 
     // EX remove
     public boolean delete(final Object o) throws ClassCastException, NullPointerException {
-        Nodo<E> borrar = null, mirar = null, cambiar = null, nPadre = null;
+        Nodo<E> borrar = null;
+        Nodo<E> mirar = null;
+        Nodo<E> cambiar = null;
+        Nodo<E> nPadre = null;
         Nodo<E> raizTmp = this.getRoot();
         E c_aux;
         boolean salir = false;
@@ -622,7 +625,7 @@ public class AVL<E> { // AVL
                     altIzq = mirar.getLeft().getAltura();
                 }
 
-                final Nodo<E> cambiar2 = estructurar(mirar, altIzq, altDer);
+                final Nodo<E> cambiar2 = estructurar(mirar, altDer);
                 final Nodo<E> superior = padre(mirar);
 
                 if (compararDato(superior.getData(), mirar.getData()) != 0) {
@@ -729,30 +732,31 @@ public class AVL<E> { // AVL
         return Math.max(hIzq, hDer) + 1;
     }
 
-    private Nodo<E> estructurar(Nodo<E> nodo, final int altIzq, final int altDer) {
-        if (extraeFactorE(nodo) == 2) {
-            if (extraeFactorE(nodo.getRight()) == 1 || extraeFactorE(nodo.getRight()) == 0) {
+    private Nodo<E> estructurar(final Nodo<E> nodo, final int altDer) {
+        Nodo<E> nodoTemp = nodo;
+        if (extraeFactorE(nodoTemp) == 2) {
+            if (extraeFactorE(nodoTemp.getRight()) == 1 || extraeFactorE(nodoTemp.getRight()) == 0) {
                 // nodo = rotacionSimpleIzquierda1(nodo);
-                nodo = rotacionSimpleIzquierda(nodo);
+                nodoTemp = rotacionSimpleIzquierda(nodoTemp);
             }
 
-            else if (extraeFactorE(nodo.getRight()) == -1) {
+            else if (extraeFactorE(nodoTemp.getRight()) == -1) {
                 // nodo = rotacionCompuestaDerecha(nodo);
-                nodo = rotacionDobleDerecha(nodo);
+                nodoTemp = rotacionDobleDerecha(nodoTemp);
             }
-        } else if (extraeFactorE(nodo) == -2) {
-            if (extraeFactorE(nodo.getLeft()) == -1 || extraeFactorE(nodo.getRight()) == 0) {
+        } else if (extraeFactorE(nodoTemp) == -2) {
+            if (extraeFactorE(nodoTemp.getLeft()) == -1 || extraeFactorE(nodoTemp.getRight()) == 0) {
                 // nodo = rotacionSimpleDerecha1(nodo);
-                nodo = rotacionSimpleDerecha(nodo);
+                nodoTemp = rotacionSimpleDerecha(nodoTemp);
             }
 
             else if (extraeFactorE(nodo.getLeft()) == 1) {
                 // nodo = rotacionCompuestaIzquierda(nodo);
-                nodo = rotacionDobleIzquierda(nodo);
+                nodoTemp = rotacionDobleIzquierda(nodoTemp);
             }
         }
 
-        return nodo;
+        return nodoTemp;
     }
 
     /*
