@@ -67,7 +67,7 @@ java -jar dist/Avl-Tree.jar
 
 [language-shield]: https://img.shields.io/badge/Java-v1.8.0-blue?style=plastic
 [language-url]: https://www.java.com/es/download/
-[codacybadge-shield]: https://img.shields.io/codacy/grade/3c17ebf7c1954006a60b08b8af2c58e2?style=plastic
+[codacybadge-shield]: https://img.shields.io/codacy/grade/4514b80a741147ba9cf70541aca4a806?style=plastic
 [codacybadge-url]: https://www.codacy.com/manual/AlexVelezLl/AVL-TREE?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlexVelezLl/AVL-TREE&amp;utm_campaign=Badge_Grade
 [repoSize-shield]: https://img.shields.io/github/repo-size/AlexVelezLl/AVL-TREE?style=plastic
 [repo]: https://github.com/AlexVelezLl/AVL-TREE
