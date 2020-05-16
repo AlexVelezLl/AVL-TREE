@@ -18,22 +18,19 @@ import static org.junit.Assert.*;
  * @author ktiusk
  */
 public class AVLTest {
-    
-    public AVLTest() {
-    }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -90,7 +87,7 @@ public class AVLTest {
         int expResult = 2;
         int result = instance.height();
         assertEquals(expResult, result);
-        if(result != expResult)
+        if (result != expResult)
             fail("The test case is a prototype.");
     }
 
@@ -106,7 +103,7 @@ public class AVLTest {
         int expResult = 2;
         int result = instance.totalNodos();
         assertEquals(expResult, result);
-        if(result != expResult)
+        if (result != expResult)
             fail("The test case is a prototype.");
     }
 
@@ -122,7 +119,7 @@ public class AVLTest {
         int expResult = 1;
         int result = instance.contarHojas();
         assertEquals(expResult, result);
-        if(result != expResult)
+        if (result != expResult)
             fail("The test case is a prototype.");
     }
 
@@ -155,7 +152,7 @@ public class AVLTest {
         boolean result = instance.Insert(element);
         assertFalse(result);
         // TODO review the generated test code and remove the default call to fail.
-        if(result != expResult)
+        if (result != expResult)
             fail("The test case is a prototype.");
     }
 
@@ -200,7 +197,7 @@ public class AVLTest {
         int expResult = -1;
         int result = instance.calcularCarga();
         assertEquals(expResult, result);
-        if(result != expResult)
+        if (result != expResult)
             fail("The test case is a prototype.");
     }
 
@@ -396,5 +393,5 @@ public class AVLTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }

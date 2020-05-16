@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package interfaz;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,21 +11,21 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author CORE i7 ULTIMATE
+ * @author AlexVelezLl
  */
-public class Index extends Application{
-    public static void main(String [] args){
+public class Index extends Application {
+    public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         InterfazArbol ia = new InterfazArbol();
-        Scene sc = new Scene(ia.getRoot(),1366,768);
+        Scene sc = new Scene(ia.getRoot(), 1366, 768);
         primaryStage.setScene(sc);
         primaryStage.setFullScreen(true);
         primaryStage.setResizable(false);
         primaryStage.show();
-        
+
     }
 }
