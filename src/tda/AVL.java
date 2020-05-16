@@ -625,7 +625,7 @@ public class AVL<E> { // AVL
                     altIzq = mirar.getLeft().getAltura();
                 }
 
-                final Nodo<E> cambiar2 = estructurar(mirar, altDer);
+                final Nodo<E> cambiar2 = estructurar(mirar, altIzq, altDer);
                 final Nodo<E> superior = padre(mirar);
 
                 if (compararDato(superior.getData(), mirar.getData()) != 0) {
@@ -732,31 +732,30 @@ public class AVL<E> { // AVL
         return Math.max(hIzq, hDer) + 1;
     }
 
-    private Nodo<E> estructurar(final Nodo<E> nodo, final int altDer) {
-        Nodo<E> nodoTemp = nodo;
-        if (extraeFactorE(nodoTemp) == 2) {
-            if (extraeFactorE(nodoTemp.getRight()) == 1 || extraeFactorE(nodoTemp.getRight()) == 0) {
+    private Nodo<E> estructurar(Nodo<E> nodo, final int altIzq, final int altDer) {
+        if (extraeFactorE(nodo) == 2) {
+            if (extraeFactorE(nodo.getRight()) == 1 || extraeFactorE(nodo.getRight()) == 0) {
                 // nodo = rotacionSimpleIzquierda1(nodo);
-                nodoTemp = rotacionSimpleIzquierda(nodoTemp);
+                nodo = rotacionSimpleIzquierda(nodo);
             }
 
-            else if (extraeFactorE(nodoTemp.getRight()) == -1) {
+            else if (extraeFactorE(nodo.getRight()) == -1) {
                 // nodo = rotacionCompuestaDerecha(nodo);
-                nodoTemp = rotacionDobleDerecha(nodoTemp);
+                nodo = rotacionDobleDerecha(nodo);
             }
-        } else if (extraeFactorE(nodoTemp) == -2) {
-            if (extraeFactorE(nodoTemp.getLeft()) == -1 || extraeFactorE(nodoTemp.getRight()) == 0) {
+        } else if (extraeFactorE(nodo) == -2) {
+            if (extraeFactorE(nodo.getLeft()) == -1 || extraeFactorE(nodo.getRight()) == 0) {
                 // nodo = rotacionSimpleDerecha1(nodo);
-                nodoTemp = rotacionSimpleDerecha(nodoTemp);
+                nodo = rotacionSimpleDerecha(nodo);
             }
 
             else if (extraeFactorE(nodo.getLeft()) == 1) {
                 // nodo = rotacionCompuestaIzquierda(nodo);
-                nodoTemp = rotacionDobleIzquierda(nodoTemp);
+                nodo = rotacionDobleIzquierda(nodo);
             }
         }
 
-        return nodoTemp;
+        return nodo;
     }
 
     /*
