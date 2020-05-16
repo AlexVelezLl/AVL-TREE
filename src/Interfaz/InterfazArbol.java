@@ -26,7 +26,7 @@ import tda.AVL;
 
 /**
  *
- * @author CORE i7 ULTIMATE
+ * @author AlexVelezLl
  */
 public class InterfazArbol {
     private Pane root;

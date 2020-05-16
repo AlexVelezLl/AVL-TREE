@@ -599,6 +599,7 @@ public class AVL<E> { // AVL
                         cambiar.setData(cambiar.getRight().getData());
                         cambiar.setRight(null);
                     }
+                    borrar.setData(c_aux);
                 }
 
                 else {
