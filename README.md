@@ -25,17 +25,17 @@ The representation of the avl tree in this application is only to save integers,
 
 As [freecodecamp](https://www.freecodecamp.org/news/avl-tree-insertion-rotation-and-balance-factor/) describes, a search binary tree is a TDA composed of nodes that have the following rules:
 
-1. Each has a root node at the top.
+ 1. Each has a root node at the top.
 
-2. Every node has at the most, two children.
+ 2. Every node has at the most, two children.
 
-3. Every node has only one parent (the root is the one node that has no parents).
+ 3. Every node has only one parent (the root is the one node that has no parents).
 
-4. For each node, its left child is less or equal than the node, wich is less or equal than its right child.
+ 4. For each node, its left child is less or equal than the node, wich is less or equal than its right child.
 
 And the Avl tree has additionally this rule:
 
-1.- The difference between the depth of right and left subtrees cannot be more than one. In order to maintain this guarantee, an implementation of an AVL will include an algorithm to rebalance the tree when adding an additional element would upset this guarantee.
+ 1. The difference between the depth of right and left subtrees cannot be more than one. In order to maintain this guarantee, an implementation of an AVL will include an algorithm to rebalance the tree when adding an additional element would upset this guarantee.
 
 There are several algotihm to aim that, a few of these are: LL rotation, RR rotation, LR rotation and RL rotation, you can watch all these algorithsm to balance the tree in this [video](https://www.youtube.com/watch?v=7m94k2Qhg68).
 
@@ -67,7 +67,7 @@ java -jar dist/Avl-Tree.jar
 
 [language-shield]: https://img.shields.io/badge/Java-v1.8.0-blue?style=plastic
 [language-url]: https://www.java.com/es/download/
-[codacybadge-shield]: https://img.shields.io/codacy/grade/3c17ebf7c1954006a60b08b8af2c58e2?style=plastic
+[codacybadge-shield]: https://img.shields.io/codacy/grade/4514b80a741147ba9cf70541aca4a806?style=plastic
 [codacybadge-url]: https://www.codacy.com/manual/AlexVelezLl/AVL-TREE?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlexVelezLl/AVL-TREE&amp;utm_campaign=Badge_Grade
 [repoSize-shield]: https://img.shields.io/github/repo-size/AlexVelezLl/AVL-TREE?style=plastic
 [repo]: https://github.com/AlexVelezLl/AVL-TREE

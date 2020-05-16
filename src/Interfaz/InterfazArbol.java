@@ -26,7 +26,7 @@ import tda.AVL;
 
 /**
  *
- * @author CORE i7 ULTIMATE
+ * @author AlexVelezLl
  */
 public class InterfazArbol {
     private Pane root;
@@ -34,7 +34,7 @@ public class InterfazArbol {
     private ScrollPane sp;
     private final TextField txtInsertar;
     private final TextField txtDelete;
-    StackPane arbol;
+    private StackPane arbol;
 
     public InterfazArbol() {
         root = new VBox();

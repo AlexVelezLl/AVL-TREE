@@ -485,7 +485,10 @@ public class AVL<E> { // AVL
 
     // EX remove
     public boolean delete(final Object o) throws ClassCastException, NullPointerException {
-        Nodo<E> borrar = null, mirar = null, cambiar = null, nPadre = null;
+        Nodo<E> borrar = null;
+        Nodo<E> mirar = null;
+        Nodo<E> cambiar = null;
+        Nodo<E> nPadre = null;
         Nodo<E> raizTmp = this.getRoot();
         E c_aux;
         boolean salir = false;
@@ -596,6 +599,7 @@ public class AVL<E> { // AVL
                         cambiar.setData(cambiar.getRight().getData());
                         cambiar.setRight(null);
                     }
+                    borrar.setData(c_aux);
                 }
 
                 else {
